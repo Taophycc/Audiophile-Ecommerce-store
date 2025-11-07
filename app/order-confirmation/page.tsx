@@ -6,7 +6,7 @@ import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import type { Doc } from "../../convex/_generated/dataModel";
+import type { Doc, Id } from "../../convex/_generated/dataModel";
 import IconOrderConfirmation from "../../public/assets/checkout/icon-order-confirmation.svg";
 
 function OrderConfirmationContent() {
@@ -16,7 +16,7 @@ function OrderConfirmationContent() {
 
   const order = useQuery(
     api.orders.getOrder,
-    orderId ? { orderId: orderId } : "skip"
+    orderId ? { orderId: orderId as Id<"orders"> } : "skip"
   );
 
   const isLoading = order === undefined;

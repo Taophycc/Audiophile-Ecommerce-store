@@ -42,7 +42,7 @@ export const createOrder = mutation({
 });
 
 export const getOrder = query({
-  args: { orderId: v.string() },
+  args: { orderId: v.id("orders") },
   handler: async (ctx, args) => {
     // const orderId: Id<"orders"> = new Id("orders", args.orderId);
     // const orderId = args.orderId;
